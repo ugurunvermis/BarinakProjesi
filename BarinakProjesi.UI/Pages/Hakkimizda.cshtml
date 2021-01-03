@@ -1,0 +1,105 @@
+﻿@page
+@model HakkimizdaModel
+@{
+    ViewData["Title"] = "Hakkımızda | Ünvermiş Hayvan Barınağı";
+}
+@section Css{
+    <style type="text/css">
+        .page-header {
+            background: url(../images/pageheader1.jpg)no-repeat;
+            position: relative;
+            background-size: cover;
+        }
+
+        .page-caption {
+            padding-top: 90px;
+            padding-bottom: 94px;
+        }
+
+        .page-title {
+            font-size: 46px;
+            line-height: 1;
+            color: #fff;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        .card-section {
+            position: relative;
+            bottom: 60px;
+        }
+
+        .card-block {
+            padding: 80px;
+        }
+
+        .section-title {
+            margin-bottom: 60px;
+        }
+    </style>
+}
+
+<!-- page-header -->
+<div class="page-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                <div class="page-caption">
+                    <h1 class="page-title">Hakkımızda</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /.page-header-->
+<!-- news -->
+<div class="card-section">
+    <div class="container">
+        <div class="card-block bg-white mb30">
+            <div class="row">
+                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                    <div class="section-title mb-0">
+                        @Model.BarinakBilgileri.barinak_hakkinda
+                    </div>
+                </div>
+            </div>
+            <div class="row" style="margin-top:50px;">
+                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                    <div class="mb-0">
+                        <h3>Çalışma Saatlerimiz</h3>
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col"></th>
+                                    <th scope="col">Açık</th>
+                                    <th scope="col">Açılış Saati</th>
+                                    <th scope="col">Kapanış Saati</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model.CalismaSaatleri)
+                                {
+                                    <tr>
+                                        <th scope="row">@item.gun</th>
+                                        @if (item.durum)
+                                        {
+                                            <td>Açık</td>
+                                            <td>@item.acilis_saati</td>
+                                            <td>@item.kapanis_saati</td>
+                                        }
+                                        else
+                                        {
+                                            <td>Kapalı</td>
+                                            <td>Kapalı</td>
+                                            <td>Kapalı</td>
+                                        }
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

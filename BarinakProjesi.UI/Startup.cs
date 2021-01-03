@@ -48,6 +48,8 @@ namespace BarinakProjesi.UI
 
             app.UseAuthorization();
 
+            app.UseCookiePolicy();
+
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapRazorPages();

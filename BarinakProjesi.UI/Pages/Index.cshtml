@@ -1,10 +1,65 @@
 ﻿@page
 @model IndexModel
 @{
-    ViewData["Title"] = "Home page";
+    ViewData["Title"] = "Ana Sayfa | Ünvermiş Hayvan Barınağı";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+@section Css{
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+    <style type="text/css">
+        .swiper-container {
+            width: 100%;
+            height: auto;
+        }
+
+        .swiper-slide {
+            text-align: center;
+            font-size: 18px;
+            background: #fff;
+        }
+
+        .swiper-container .swiper-slide {
+            height: 400px;
+            line-height: 400px;
+        }
+    </style>
+}
+
+@section Scripts{
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script type="text/javascript">
+        var swiper = new Swiper('.swiper-container', {
+            autoHeight: true,
+            autoplay: {
+                delay: 2000,
+            },
+            spaceBetween: 20,
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+        });
+    </script>
+}
+
+<!-- Swiper -->
+<div class="swiper-container">
+    <div class="swiper-wrapper">
+        <div class="swiper-slide" style="background-size:cover; background-image:url('../images/Slider/slider1.jpg');"></div>
+        <div class="swiper-slide" style="background-size:cover; background-position:right; background-image:url('../images/Slider/slider2.jpg');"></div>
+        <div class="swiper-slide" style="background-size:cover; background-position:right; background-image:url('../images/Slider/slider3.jpg');"></div>
+
+    </div>
+    <!-- Add Pagination -->
+    <div class="swiper-pagination"></div>
+    <!-- Add Pagination -->
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
 </div>
+
+<h3 style="margin-top:30px;">Ünvermiş Hayvan Barınağı</h3>
+@Model.BarinakBilgileri.barinak_hakkinda
