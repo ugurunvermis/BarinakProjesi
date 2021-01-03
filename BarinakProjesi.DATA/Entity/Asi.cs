@@ -1,9 +1,10 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BarinakProjesi.DATA.Context
 {
-    public class AsiTakvimi
+    public class Asi
     {
         [Key]
         public int id { get; set; }
@@ -19,6 +20,8 @@ namespace BarinakProjesi.DATA.Context
 
         [Display(Name = "Hayvan")]
         public int hayvan_id { get; set; }
+
+        [ForeignKey("hayvan_id")]
         public virtual KayitliHayvanlar hayvan { get; set; }
     }
 }
